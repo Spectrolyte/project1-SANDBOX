@@ -8,7 +8,7 @@ var searchTerms = ['puppy','cats','pink flowers','trees and sun'];
 	// create a counter -- if it matches the amount of images we want to show, stop the game
 
 
-$(document).ready(function () {
+$(document).ready(function() {
 
 // ============================================================================
 
@@ -169,6 +169,7 @@ $('#submit-btn').click(function (event) {
 
 	// update firebase array
 	updateGuesses();
+	evalGuesses();
 })
 
 // whenever this function is run, update the user's firebase array with the local array
@@ -184,7 +185,7 @@ function updateGuesses () {
 }
 
 var guessData = database.ref("users/guesses");
-    
+function evalGuesses () {
     guessData.on("value", function (snapshot) {
         var currentGuess = snapshot.val();
 
@@ -214,7 +215,7 @@ var guessData = database.ref("users/guesses");
 
         console.log(teamPoints);
     }); // End comparisonTime
-
+}
 
 // change click event to function on setTimeout -- each round lasts 30 seconds
 // run this function, then setTimeout on point calculation for 30 seconds
@@ -298,18 +299,6 @@ function endGame () {
 	// empty array of guesses
 	// ask if players want to play again
 }
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
