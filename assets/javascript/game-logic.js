@@ -164,17 +164,6 @@ $('#submit-btn').click(function (event) {
 	var guess = $('#userInput').val().toLowerCase();
 	console.log(guess);
 
-	// adds user guess to guesses array if it doesn't already exist
-	if (!guesses.includes(guess)) {
-		guesses.push(guess);
-	}
-	else {
-		// alert user that they guessed that word already
-		alert('You already guessed ' + guess);
-	}
-
-	console.log(guesses);
-
 	// clear input field
 	$('#userInput').val('');
 
