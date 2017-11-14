@@ -155,7 +155,7 @@ function calculateTeamPoints () {
 // capture user input and store in guesses array
 // need to reference respective array according to firebase storage /users/UID.guesses and update
 // need to add listener and use snapshot.val() to access the UID.guesses prop
-$('#submit-btn').click(function (event) {
+$('#submit').click(function (event) {
 	// prevent page reload
 	event.preventDefault();
 
