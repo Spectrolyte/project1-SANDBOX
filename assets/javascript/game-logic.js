@@ -22,6 +22,7 @@ var points;
 
 var currentPlayers = null;
 
+var usersRef = database.ref('/users/' + UID);
 var currentPlayersRef = database.ref('/currentPlayers/' + UID);
 
 firebase.auth().onAuthStateChanged(function(user) {
@@ -37,6 +38,7 @@ firebase.auth().onAuthStateChanged(function(user) {
 
     // add to users object
     var usersRef = database.ref('/users/' + UID);
+
 	usersRef.transaction(function(currentData) {
 	  if (currentData === null) {
 	    return {name: displayName, points: 0, guesses: null};
