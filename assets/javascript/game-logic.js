@@ -145,13 +145,6 @@ function getPlayerGuesses () {
 	})
 }
 
-// calculate team points
-function calculateTeamPoints () {
-// access users' firebase array and compare to other player's
-// take one array and iterate through each of the other elements in the other array
-	// for loop within a for loop
-}
-
 // capture user input and store in guesses array
 // need to reference respective array according to firebase storage /users/UID.guesses and update
 // need to add listener and use snapshot.val() to access the UID.guesses prop
@@ -189,29 +182,29 @@ function updateGuesses () {
 var guessData = database.ref("users/guesses");
 
 function evalGuesses () {
-    guessData.on("value", function (snapshot) {
+    guessData.once("value", function (snapshot) {
         var currentGuess = snapshot.val();
 
         console.log(currentGuess);
 
         var counts = [];
 
-        for (var i=0; i <currentGuess.length; i++) {
+        for (var i=0; i < currentGuess.length; i++) {
         	counts.push(arrayCompare(currentGuess, currentGuess[i]))
         }
 
-        function arrayCompare(currentGuess, what) {
+        function arrayCompare(arr, what) {
             var count = 0;
-            for (var i = 0; i < currentGuess.length; i++) {
-                if (currentGuess[i] === what) {
+            for (var i = 0; i < arr.length; i++) {
+                if (arr[i] === what) {
                     count++;
                 }
             }
             return count;
         }
         
-        for (var index=0; index < counts.length; i++) {
-        	if (counts[i] >= 2) {
+        for (var index=0; index < counts.length; index++) {
+        	if (counts[index] >= 2) {
         		teamPoints++;
         	}
         }
@@ -258,49 +251,8 @@ function showImage () {
 		// appending selected image and photographer link to body -- testing
 		$('body').append(image).append(profileLink).append(imageLink);
 
-		// if guesses includes one of the actual tags associated with the image (from API), grant 2 points.
-		// iterate through tags and check to see if they exist in the guesses array
-			// refactor this code later for multiplayer feature
-		/*function addBonusPoints () {
-
-			for (var i=0; i < tags.length; i++) {
-				// if player one guessed a correct tag, award 2 points
-				if (p1guesses.includes(tags[i])) {
-					p1points += 2;
-				}
-				// if player one guessed a correct tag, award 2 points
-				if (p2guesses.includes(tags[i])) {
-					p2points += 2;
-				}
-			}
-		}*/
-
-		// displays total points accumulated by user
-		/*function showFinalScore () {
-			calculateTeamPoints();
-			addBonusPoints();
-		}*/
-
 	});
 
-}
-
-function updateFirebaseUserData () {
-	// grab user data from returningUsers folder
-		// get points value
-		// increment points accordingly
-}
-
-function startGame () {
-	// start game
-	// set timers
-}
-
-function endGame () {
-	// show more info about photo
-	// stop timers
-	// empty array of guesses
-	// ask if players want to play again
 }
 
 
