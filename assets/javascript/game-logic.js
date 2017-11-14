@@ -164,6 +164,8 @@ $('#submit-btn').click(function (event) {
 	var guess = $('#userInput').val().toLowerCase();
 	console.log(guess);
 
+	guesses.push(guess);
+
 	// clear input field
 	$('#userInput').val('');
 
@@ -185,6 +187,7 @@ function updateGuesses () {
 }
 
 var guessData = database.ref("users/guesses");
+
 function evalGuesses () {
     guessData.on("value", function (snapshot) {
         var currentGuess = snapshot.val();
