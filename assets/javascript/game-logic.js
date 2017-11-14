@@ -16,8 +16,8 @@ var database = firebase.database();
 
 // Google Auth data capture -- NEED TO FIGURE THIS OUT
 var user = firebase.auth().currentUser;
-var UID;
-var displayName;
+var UID = user.uid;
+var displayName = user.displayName;
 var points;
 
 var currentPlayers = null;
@@ -109,7 +109,7 @@ currentPlayersRef.on('value', function (snapshot) {
 var teamPoints = 0;
 
 // stores user guesses to be referenced to later and compared
-var guesses = [];
+var guesses = ['PLACEHOLDER'];
 
 //create random number generator
 	// to select random word from our word bank
