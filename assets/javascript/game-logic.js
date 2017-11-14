@@ -37,7 +37,7 @@ firebase.auth().onAuthStateChanged(function(user) {
     console.log('=================================');
 
     // add to users object
-    var usersRef = database.ref('/users/' + UID);
+    usersRef = database.ref('/users/' + UID);
 
 	usersRef.transaction(function(currentData) {
 	  if (currentData === null) {
