@@ -57,7 +57,7 @@ firebase.auth().onAuthStateChanged(function(user) {
 	  console.log(displayName + '\'s data: ,' + snapshot.val());
 	});
 
-	accessGuesses();
+	updateGuesses();
 
 	// add to game-room if there's < 2 players
 	
@@ -112,7 +112,7 @@ currentPlayersRef.on('value', function (snapshot) {
 var teamPoints = 0;
 
 // stores user guesses to be referenced to later and compared
-var guesses = ['PLACEHOLDER'];
+var guesses = [];
 
 //create random number generator
 	// to select random word from our word bank
@@ -123,25 +123,9 @@ function generateRandomNum (min, max) {
 
 // calculate team points
 function calculateTeamPoints () {
-	// if player 1 and player 2 share a similar word in their guesses, grant one point to each
-		// calculate difference between the array lengths
-		// whichever one has less elements, add placeholders to have same lengths
-		// iterate over one array, check to see if a word exists in another
-			// if there's a match, push to new array
-			// count length of new array and add points to each player
 
-// take one array and iterate through
-
-	for (var i=0; i < p2guesses.length; i++) {
-		if (p1guesses.includes(p2guesses[i])) {
-			p1p2Matches.push(p2guesses[i]);
-		}
-	}
-
-	teamPoints = p1p2Matches.length;
-
-	p1points += teamPoints;
-	p2points += teamPoints;
+// take one array and iterate through eahc of the other elements in the other array
+	// for loop within a for loop
 	
 }
 
@@ -170,25 +154,19 @@ $('#submit-btn').click(function (event) {
 
 	// clear input field
 	$('#userInput').val('');
-	accessGuesses();
+
+	updateGuesses();
 })
 // add firebase obj listener for user data -- array changes
 // whenever a user's array is updated, update changes here
 
 console.log(UID);
 
-function accessGuesses () {
+function updateGuesses () {
 	database.ref('/users/' + UID + '/guesses').on('value', function (snapshot) {
-		// var key = snapshot.key; // "UID" -- whatever it may be
-	    // var childKey = snapshot.child("guesses").key; // 
-
-		console.log('HELLO I WORKED');
-		console.log(snapshot);
-		console.log(snapshot.val());
-		// console.log(snapshot.child('guesses').val());
-
-		/*userData.guesses = guesses;*/
-		/*console.log(userData.guesses);*/
+		var guessesRef = snapshot.val();
+		// update guesses array in FireBase with the locally stored guesses array
+		guessesRef = guesses;
 	})
 }
 
