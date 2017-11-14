@@ -1,0 +1,167 @@
+
+.responsive-img{
+    margin: 150px;
+    border: 2px solid rgb(16, 16, 16);
+    border-radius: 5px;
+}
+
+
+body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+    background-image: url(../images/background.png);
+    background-size: cover;
+    
+}
+
+h1 {
+    text-align: center;
+    border-color: #fed361;
+    border-width: 5px;
+    border-style: solid;
+    border-radius: 25px;
+    background-color: #1fb0b0;
+    color: white;
+    padding: 10px;
+    font-family: 'Passion One', cursive;
+}
+
+.sun {
+    width: 50%;
+    display:block;
+    margin:auto;
+    clear:both;
+}
+
+.circle {
+    image-orientation: center;
+}
+
+
+.totalScore {
+    text-align: center;
+    font-family: 'Passion One', cursive;
+    font-family: 'Boogaloo', cursive;
+    font-size:20px;
+    color:white;
+
+}
+
+.player{
+text-align: center;
+font-family: 'Passion One', cursive;
+font-family: 'Boogaloo', cursive;
+font-size:20px;
+color:white;
+
+}
+
+.wrapper {
+    text-align: center;
+}
+
+.btn {
+    position: absolute;
+    top: 50%;
+
+}
+
+
+#moveUp{
+margin-top:-10px;
+
+
+
+}
+
+#center{
+
+margin:auto;
+padding:10px;
+
+
+}
+
+#middle{
+margin:auto;
+width:50%;
+}
+
+#timer {
+    text-align: center;
+    color: yellow;
+    border-radius: 25px;
+    background-color: black;
+    padding: 3px;
+    /*font-family: bold;
+    border-radius: 25px;
+    margin-top:20px; */
+}
+
+#teamscore {
+    text-align: center;
+    color: yellow;
+    border-radius: 25px;
+    background-color: black;
+    padding: 3px;
+    /* background-color: #af2380; */
+    /* color: white;
+    margin: auto;
+    width: 100%;
+    border-radius: 25px; */
+}
+
+#picture {
+    display:block;
+    margin: auto;
+    margin-top: 10px;
+    width: 100%;
+    /* max-height: 55%; */
+    border-radius: 25px;
+    /* border-color: #e7efef;
+    border-width: 5px;
+    border-style: solid; */
+}
+
+#userInput {
+    text-align: center;
+    background-color: #fdfdfd;
+    color: black;
+    margin: auto;
+    width: 100%;
+    border-radius: 25px;
+}
+
+#submit {
+    margin: 0 auto;
+    border-radius: 25px;
+}
+
+.birdlogo {
+    width: 100%;
+}
+
+p {
+    text-shadow: 2px 2px black;
+}
+
+.submit{
+    border-radius: 5px !important;
+}
+
+.cloud{
+    border: unset;
+  
+    margin-top: 20px !important;
+}
+.sunpixel{
+    margin-top: 20px !important;
+    border: unset;
+    
+/* 980px */
+
+/* 760px */
+
+/* 640px */
+
