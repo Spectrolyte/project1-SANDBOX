@@ -60,8 +60,8 @@ firebase.auth().onAuthStateChanged(function(user) {
 	/*updateGuesses();*/
 
 	// add to game-room if there's < 2 players
-	
-	/*if (currentPlayers < 2) {
+/*	
+	if (currentPlayers < 2) {
 		currentPlayersRef.transaction(function(currentData) {
 		  if (currentData === null) {
 		    return {name: displayName, points: 0, guesses: []};
@@ -81,7 +81,7 @@ firebase.auth().onAuthStateChanged(function(user) {
 		});
 	}
 	else {
-		alert('sorry, there\'s no more room.')
+		alert('sorry, there\'s no more room.');
 	}*/
 
 
@@ -137,10 +137,8 @@ function getPlayerGuesses () {
 // calculate team points
 function calculateTeamPoints () {
 // access users' firebase array and compare to other player's
-
 // take one array and iterate through each of the other elements in the other array
 	// for loop within a for loop
-	
 }
 
 // capture user input and store in guesses array
@@ -175,15 +173,35 @@ $('#submit-btn').click(function (event) {
 
 // whenever this function is run, update the user's firebase array with the local array
 function updateGuesses () {
-	database.ref('/users/' + UID + '/guesses').set(guesses)
+	database.ref('/users/guesses').set(guesses)
 
-	database.ref('/users/' + UID + '/guesses').on('value', function (snapshot) {
+	database.ref('/users/guesses').on('value', function (snapshot) {
 		var guessesRef = snapshot.val();
 		console.log('firebase array: ' + guessesRef);
 	})
 
 	console.log('this is the local array: ' + guesses)
 }
+
+var guessData = database.ref("users/guesses");
+    
+    guessData.on("value", function comparisonTime(snapshot) {
+        var currentGuess = snapshot.val();
+        console.log(currentGuess);
+
+        function arrayCompare(currentGuess, what) {
+            var count = 0;
+            for (var i = 0; i < currentGuess.length; i++) {
+                if (currentGuess[i] === what) {
+                    count++;
+                }
+            }
+            return count;
+        }
+        countInArray(list, 2); // returns 2
+        countInArray(list, 1); // returns 3
+    }); // End comparisonTime
+
 
 // change click event to function on setTimeout -- each round lasts 30 seconds
 // run this function, then setTimeout on point calculation for 30 seconds
