@@ -166,7 +166,7 @@ function updateGuesses () {
 	database.ref('/users/' + UID + '/guesses').on('value', function (snapshot) {
 		var guessesRef = snapshot.val();
 		// update guesses array in FireBase with the locally stored guesses array
-		guessesRef.set({
+		snapshot.set({
 			guesses
 		})
 	})
