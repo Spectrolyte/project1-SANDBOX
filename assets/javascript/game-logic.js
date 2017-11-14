@@ -57,7 +57,7 @@ firebase.auth().onAuthStateChanged(function(user) {
 	  console.log(displayName + '\'s data: ,' + snapshot.val());
 	});
 
-	updateGuesses();
+	/*updateGuesses();*/
 
 	// add to game-room if there's < 2 players
 	
@@ -163,13 +163,16 @@ $('#submit-btn').click(function (event) {
 console.log(UID);
 
 function updateGuesses () {
+	database.ref('/users/' + UID + '/guesses').set({
+		guesses
+	})
+
 	database.ref('/users/' + UID + '/guesses').on('value', function (snapshot) {
 		var guessesRef = snapshot.val();
-		// update guesses array in FireBase with the locally stored guesses array
-		snapshot.set({
-			guesses
-		})
+		console.log('firebase array: ' + guessesRef);
 	})
+
+	console.log('this is the local array: ' + guesses)
 }
 
 // change click event to function on setTimeout -- each round lasts 30 seconds
