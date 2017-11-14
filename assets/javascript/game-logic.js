@@ -101,7 +101,6 @@ firebase.auth().signOut().then(function() {
     signOut();
 
     $(".logoutButton").on("click", signOut);
-})
 
 currentPlayersRef.on('value', function (snapshot) {
 
@@ -196,8 +195,9 @@ function updateGuesses () {
 
 var guessData = database.ref("users/guesses");
     
-    guessData.on("value", function comparisonTime(snapshot) {
+    guessData.on("value", function (snapshot) {
         var currentGuess = snapshot.val();
+
         console.log(currentGuess);
 
         var counts = [];
