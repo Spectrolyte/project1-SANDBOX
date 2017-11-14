@@ -179,9 +179,9 @@ $('#submit-btn').click(function (event) {
 
 usersRef.on('value', function (snapshot) {
 	var userData = snapshot.val();
-	userData.guesses = guesses;
+	/*userData.guesses = guesses;*/
 	console.log(userData);
-	console.log(userData.guesses);
+	/*console.log(userData.guesses);*/
 })
 
 // change click event to function on setTimeout -- each round lasts 30 seconds
