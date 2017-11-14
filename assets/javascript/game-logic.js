@@ -92,7 +92,8 @@ firebase.auth().onAuthStateChanged(function(user) {
 
 });
 
-firebase.auth().signOut().then(function() {
+
+/*firebase.auth().signOut().then(function() {
         // sign-out successful
     }).catch(function(error) {
         // an error happened
@@ -100,7 +101,7 @@ firebase.auth().signOut().then(function() {
 
     signOut();
 
-    $(".logoutButton").on("click", signOut);
+    $(".logoutButton").on("click", signOut);*/
 
 currentPlayersRef.on('value', function (snapshot) {
 
