@@ -177,11 +177,12 @@ $('#submit-btn').click(function (event) {
 // add firebase obj listener for user data -- array changes
 // whenever a user's array is updated, update changes here
 
-database.ref('users/' + UID + '/guesses').on('value', function (snapshot) {
+database.ref('users/' + UID).on('value', function (snapshot) {
 	console.log('HELLO I WORKED');
 	console.log(snapshot);
 	console.log(snapshot.val());
 	console.log(UID);
+	console.log(snapshot.child('guesses'));
 	/*userData.guesses = guesses;*/
 	/*console.log(userData.guesses);*/
 })
