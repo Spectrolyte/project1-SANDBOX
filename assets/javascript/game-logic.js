@@ -173,7 +173,7 @@ $('#submit-btn').click(function (event) {
 // whenever a user's array is updated, update changes here
 
 
-database.ref('/users').on('value', function (snapshot) {
+database.ref('/users/' + UID + '/guesses').on('value', function (snapshot) {
 	// var key = snapshot.key; // "UID" -- whatever it may be
     // var childKey = snapshot.child("guesses").key; // 
 
