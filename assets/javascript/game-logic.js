@@ -16,8 +16,8 @@ var database = firebase.database();
 
 // Google Auth data capture -- NEED TO FIGURE THIS OUT
 var user = firebase.auth().currentUser;
-var UID = user.uid;
-var displayName = user.displayName;
+var UID;
+var displayName;
 var points;
 
 var currentPlayers = null;
@@ -41,7 +41,7 @@ firebase.auth().onAuthStateChanged(function(user) {
 
 	usersRef.transaction(function(currentData) {
 	  if (currentData === null) {
-	    return {name: displayName, points: 0, guesses: null};
+	    return {name: displayName, points: 0, guesses: ['PLACEHOLDER']};
 	  } else {
 	    console.log('User' + displayName + 'already exists.');
 	    return; // Abort the transaction.
