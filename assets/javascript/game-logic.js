@@ -181,6 +181,7 @@ database.ref('users/' + UID + '/guesses').on('value', function (snapshot) {
 	console.log('HELLO I WORKED');
 	console.log(snapshot);
 	console.log(snapshot.val());
+	console.log(UID);
 	/*userData.guesses = guesses;*/
 	/*console.log(userData.guesses);*/
 })
