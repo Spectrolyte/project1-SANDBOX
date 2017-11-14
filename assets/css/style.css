@@ -10,7 +10,7 @@ body {
     display: flex;
     min-height: 100vh;
     flex-direction: column;
-    background-image: url(../images/background.png);
+    background-image: url(../Images/background.png);
     background-size: cover;
     
 }
