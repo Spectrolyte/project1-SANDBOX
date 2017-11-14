@@ -158,6 +158,7 @@ $('#submit-btn').click(function (event) {
 	// capture user input
 	// convert to lowercase
 	var guess = $('#userInput').val().toLowerCase();
+	console.log(guess);
 
 	// adds user guess to guesses array if it doesn't already exist
 	if (!guesses.includes(guess)) {
@@ -168,6 +169,8 @@ $('#submit-btn').click(function (event) {
 		alert('You already guessed ' + guess);
 	}
 
+	console.log(guesses);
+
 	// clear input field
 	$('#userInput').val('');
 })
@@ -177,6 +180,8 @@ $('#submit-btn').click(function (event) {
 usersRef.on('value', function (snapshot) {
 	var userData = snapshot.val();
 	userData.guesses = guesses;
+	console.log(userData);
+	console.log(userData.guesses);
 })
 
 // change click event to function on setTimeout -- each round lasts 30 seconds
