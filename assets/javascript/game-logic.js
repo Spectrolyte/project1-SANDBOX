@@ -92,6 +92,17 @@ firebase.auth().onAuthStateChanged(function(user) {
 
 });
 
+firebase.auth().signOut().then(function() {
+        // sign-out successful
+    }).catch(function(error) {
+        // an error happened
+    });
+
+    signOut();
+
+    $(".logoutButton").on("click", signOut);
+})
+
 currentPlayersRef.on('value', function (snapshot) {
 
 	currentPlayers = snapshot.numChildren();
@@ -189,6 +200,12 @@ var guessData = database.ref("users/guesses");
         var currentGuess = snapshot.val();
         console.log(currentGuess);
 
+        var counts = [];
+
+        for (var i=0; i <currentGuess.length; i++) {
+        	counts.push(arrayCompare(currentGuess, currentGuess[i]))
+        }
+
         function arrayCompare(currentGuess, what) {
             var count = 0;
             for (var i = 0; i < currentGuess.length; i++) {
@@ -198,8 +215,14 @@ var guessData = database.ref("users/guesses");
             }
             return count;
         }
-        countInArray(list, 2); // returns 2
-        countInArray(list, 1); // returns 3
+        
+        for (var index=0; index < counts.length; i++) {
+        	if (counts[i] >= 2) {
+        		teamPoints++;
+        	}
+        }
+
+        console.log(teamPoints);
     }); // End comparisonTime
 
 
