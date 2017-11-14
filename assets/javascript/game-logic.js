@@ -57,6 +57,8 @@ firebase.auth().onAuthStateChanged(function(user) {
 	  console.log(displayName + '\'s data: ,' + snapshot.val());
 	});
 
+	accessGuesses();
+
 	// add to game-room if there's < 2 players
 	
 	/*if (currentPlayers < 2) {
@@ -168,23 +170,27 @@ $('#submit-btn').click(function (event) {
 
 	// clear input field
 	$('#userInput').val('');
+	accessGuesses();
 })
 // add firebase obj listener for user data -- array changes
 // whenever a user's array is updated, update changes here
 
+console.log(UID);
 
-database.ref('/users/' + UID + '/guesses').on('value', function (snapshot) {
-	// var key = snapshot.key; // "UID" -- whatever it may be
-    // var childKey = snapshot.child("guesses").key; // 
+function accessGuesses () {
+	database.ref('/users/' + UID + '/guesses').on('value', function (snapshot) {
+		// var key = snapshot.key; // "UID" -- whatever it may be
+	    // var childKey = snapshot.child("guesses").key; // 
 
-	console.log('HELLO I WORKED');
-	console.log(snapshot);
-	console.log(snapshot.val());
-	// console.log(snapshot.child('guesses').val());
+		console.log('HELLO I WORKED');
+		console.log(snapshot);
+		console.log(snapshot.val());
+		// console.log(snapshot.child('guesses').val());
 
-	/*userData.guesses = guesses;*/
-	/*console.log(userData.guesses);*/
-})
+		/*userData.guesses = guesses;*/
+		/*console.log(userData.guesses);*/
+	})
+}
 
 // change click event to function on setTimeout -- each round lasts 30 seconds
 // run this function, then setTimeout on point calculation for 30 seconds
