@@ -121,10 +121,24 @@ function generateRandomNum (min, max) {
 	return Math.floor(Math.random() * max) + min;
 }
 
+// need to access users based on game room
+// grab child node keys to access their arrays and use in calculateTeamPoints to set to local variable for comparison
+
+var playerOneGuesses;
+var playerTwoGuesses;
+
+function getPlayerGuesses () {
+	// get children keys when they're added to the current players folder
+	database.ref('/currentPlayers').on('child_added', function (snapshot) {
+
+	})
+}
+
 // calculate team points
 function calculateTeamPoints () {
+// access users' firebase array and compare to other player's
 
-// take one array and iterate through eahc of the other elements in the other array
+// take one array and iterate through each of the other elements in the other array
 	// for loop within a for loop
 	
 }
@@ -155,17 +169,13 @@ $('#submit-btn').click(function (event) {
 	// clear input field
 	$('#userInput').val('');
 
+	// update firebase array
 	updateGuesses();
 })
-// add firebase obj listener for user data -- array changes
-// whenever a user's array is updated, update changes here
 
-console.log(UID);
-
+// whenever this function is run, update the user's firebase array with the local array
 function updateGuesses () {
-	database.ref('/users/' + UID + '/guesses').set({
-		guesses
-	})
+	database.ref('/users/' + UID + '/guesses').set(guesses)
 
 	database.ref('/users/' + UID + '/guesses').on('value', function (snapshot) {
 		var guessesRef = snapshot.val();
