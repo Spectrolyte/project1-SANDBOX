@@ -127,13 +127,8 @@ function calculateTeamPoints () {
 		// iterate over one array, check to see if a word exists in another
 			// if there's a match, push to new array
 			// count length of new array and add points to each player
-	if (p1guesses.length > p2guesses.length) {
-		// placeholder is uppercase to dinstinguish between user guesses
-		p2guesses.push('EXTRA');
-	}
-	else if (p1guesses.length < p2guesses.length) {
-		p1guesses.push('EXTRA');
-	}
+
+// take one array and iterate through
 
 	for (var i=0; i < p2guesses.length; i++) {
 		if (p1guesses.includes(p2guesses[i])) {
@@ -178,15 +173,15 @@ $('#submit-btn').click(function (event) {
 // whenever a user's array is updated, update changes here
 
 
-database.ref('/users/' + UID).on('value', function (snapshot) {
+database.ref('/users').on('value', function (snapshot) {
 	// var key = snapshot.key; // "UID" -- whatever it may be
     // var childKey = snapshot.child("guesses").key; // 
 
 	console.log('HELLO I WORKED');
 	console.log(snapshot);
 	console.log(snapshot.val());
-	console.log(UID);
-	console.log(snapshot.child('guesses').val());
+	// console.log(snapshot.child('guesses').val());
+
 	/*userData.guesses = guesses;*/
 	/*console.log(userData.guesses);*/
 })
