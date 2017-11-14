@@ -182,7 +182,7 @@ database.ref('users/' + UID).on('value', function (snapshot) {
 	console.log(snapshot);
 	console.log(snapshot.val());
 	console.log(UID);
-	console.log(snapshot.child('guesses'));
+	console.log(snapshot.child('guesses').val());
 	/*userData.guesses = guesses;*/
 	/*console.log(userData.guesses);*/
 })
