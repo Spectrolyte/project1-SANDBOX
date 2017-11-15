@@ -185,14 +185,14 @@ function evalGuesses () {
     guessData.once("value", function (snapshot) {
         var currentGuesses = snapshot.val();
 
-        console.log(currentGuess);
+        console.log(currentGuesses);
 
         var wordCount = {};
 
         for (var i=0; i < currentGuesses.length; i++) {
         	// if the word already exists in the wordCount obj, do nothing
         	if (!wordCount[currentGuesses[i]]) {
-	        	wordCount[currentGuesses[i]] = arrayCompare(currentGuesses, currentGuess[i]);
+	        	wordCount[currentGuesses[i]] = arrayCompare(currentGuesses, currentGuesses[i]);
 	        }
         }
 
