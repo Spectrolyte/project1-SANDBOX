@@ -260,10 +260,6 @@ function updatePoints () {
 	console.log(updatedPoints);
 }
 
-$('#update-score').on('show', function () {
-	updatePoints();
-})
-
 // run this at the end of the game round
 function showImageInfo () {
 
@@ -304,14 +300,55 @@ function showImage () {
 								.attr('href', chosen.pageURL)
 								.text('More about this image');
 
-		// appending selected image and photographer link to body -- testing
-		$('body').append(image).append(profileLink).append(imageLink);
+		//change picture source
+		$('#picture').attr('src', chosen.previewURL);
+
+		function showInfo () {
+			$('#game-image-section').append(profileLink).append(imageLink);
+		}
 
 	});
 
 }
 
+var number = 60; 
+var intervalId;
 
+function run() {
+    intervalId = setInterval(decrement, 1000);
+    $(".submitbutton").show();
+    $('#update-score').hide();
+}
+
+// set the countdown
+function decrement() {
+    number--;
+    
+    $("#timer").text(number);
+
+    if (number === 0) {
+        stop();
+        
+    }
+}
+
+// when the countdown timer hits 0, it will stop
+function stop() {
+    clearInterval(intervalId);
+    number = 60;
+    $(".submitbutton").hide();
+    $('#update-score').show();
+}
+
+$('#update-score').on('show', function () {
+	updatePoints();
+})
+
+// start button
+$(".startButton").on("click", run);
+
+// stop button
+$(".restartButton").on("click", run);
 
 
 
