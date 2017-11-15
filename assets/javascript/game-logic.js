@@ -242,7 +242,7 @@ function calculateTeamPoints () {
 // update the user points in firebase with the teamPoints -- run this last
 function updatePoints () {
 
-	var userHistPoints;
+	/*var userHistPoints;
 
 	database.ref('/users/' + UID + '/points').on('value', function (snapshot) {
 		userHistPoints = snapshot.val();
@@ -257,7 +257,13 @@ function updatePoints () {
 
 	database.ref('/users/' + UID + '/points').set(updatedPoints);
 
-	console.log(updatedPoints);
+	console.log(updatedPoints);*/
+
+	console.log(teamPoints);
+
+	database.ref('/users/' + UID + '/points').transaction(function (current_value) {
+	  return (current_value || 0) + teamPoints;
+	});
 }
 
 // run this at the end of the game round
