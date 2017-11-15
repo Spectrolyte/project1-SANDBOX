@@ -239,10 +239,10 @@ function calculateTeamPoints () {
     console.log(teamPoints);
 }
 
+var userHistPoints;
+
 // update the user points in firebase with the teamPoints -- run this last
 function updatePoints () {
-
-	var userHistPoints;
 
 	database.ref('/users/' + UID + '/points').on('value', function (snapshot) {
 		userHistPoints = snapshot.val();

@@ -17,17 +17,17 @@
 
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 
-    <script type = "text/javascript" 
+    <script type = "text/javascript"
          src = "https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.3/jquery-ui.min.js"></script>
 
 
-    <script type="text/javascript" src="assets/javascript/timer.js"></script>
+   <!--  <script type="text/javascript" src="assets/javascript/timer.js"></script> -->
 
     <!-- Compiled and minified CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
 
     <!-- Compiled and minified JavaScript -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script> 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
 
     <title>Photo Vision</title>
 
@@ -58,16 +58,16 @@
 
             <div class="col s3">
               <div class="row">
-                  <img  id = "profileOne" class = "responsive-img  sun sunpixel" src="assets/Images/sun.svg">
+                  <img  id = "profileOne" class = "responsive-img  sun sunpixel">
                </div>
-               <div class="row">   
-                   <p  id="playerOne" class="totalScore">Player 1</p>
+               <div class="row">
+                   <p  id="playerOne" class="totalScore"></p>
                    <p id ="playerOneScore" class="player">TOTAL POINTS: 1,202</p>
                 </div>
             </div>
     <!-- Game Image  -->
-            <div class="col s6">               
-                <img  id="picture" class="responsive-img z-depth-5 startButton" src="http://cdn3-www.dogtime.com/assets/uploads/gallery/goldador-dog-breed-pictures/puppy-1.jpg"> 
+            <div class="col s6" id="game-image-section">
+                <img  id="picture" class="responsive-img z-depth-5 startButton" src="http://cdn3-www.dogtime.com/assets/uploads/gallery/goldador-dog-breed-pictures/puppy-1.jpg">
             </div>
 
     <!-- Players 2 Icon -->
@@ -98,8 +98,7 @@
             </div>
     <!-- team score -->
             <div class="col s3">
-                <p id="teamScore">Score : 3</p>
-                
+                <p id="teamScore">Score: <span id="teampoints"></span></p>
             </div>
         </div>
 
@@ -107,17 +106,17 @@
         <div class="row">
             <div class="col s12">
                 <div class="wrapper">
-                    <button class="btn submitbutton pink darken-3 waves-effect waves-light z-depth-5" type="submit" name="action">
+                    <button class="btn submitbutton pink darken-3 waves-effect waves-light z-depth-5" id="submit-btn" type="submit" name="action">
                     <i class="material-icons right" id="submit">Submit</i></button>
                 </div>
             </div>
         </div>
-        
+
     <!-- logo and logout button -->
         <div class="row">
-            
+
             <div class="col s3 center-align">
-                <a class="btn-floating btn-large waves-effect waves-light red z-depth-5 logoutButton"><i class="material-icons">X</i></a>
+                <a class="btn-floating btn-large waves-effect waves-light red z-depth-5 logoutButton" href="index.html"><i class="material-icons">X</i></a>
             </div>
             <div class="col s6"></div>
             <div class="col s3">
@@ -131,9 +130,8 @@
     </div>
 
     <script type="text/javascript" src = "assets/javascript/page1.js"></script>
-    <script type="text/javascript" src = "assets/javascript/game-logic.js"></script>
+    <script type="text/javascript" src="assets/javascript/game-logic.js"></script>
 
 </body>
 
 </html>
-
