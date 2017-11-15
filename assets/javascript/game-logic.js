@@ -260,7 +260,7 @@ function updatePoints () {
 	console.log(updatedPoints);
 }
 
-$('.submitbutton').on('hide', function () {
+$('#update-score').on('show', function () {
 	updatePoints();
 })
 

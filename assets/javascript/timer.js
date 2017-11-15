@@ -7,6 +7,7 @@ var intervalId;
 function run() {
     intervalId = setInterval(decrement, 1000);
     $(".submitbutton").show();
+    $('#update-score').hide();
 };
 
 // set the countdown
@@ -26,6 +27,7 @@ function stop() {
     clearInterval(intervalId);
     number = 60;
     $(".submitbutton").hide();
+    $('#update-score').show();
 }
 
 // start button
