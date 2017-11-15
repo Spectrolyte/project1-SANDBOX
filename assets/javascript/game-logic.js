@@ -320,6 +320,7 @@ function run() {
 		running = true;
 	    intervalId = setInterval(decrement, 1000);
 	    $(".submitbutton").show();
+	    showImage();
 	}
 }
 
