@@ -1,18 +1,5 @@
-
-.responsive-img{
-    margin: 150px;
-    border: 2px solid rgb(16, 16, 16);
-    border-radius: 5px;
-}
-
-
 body {
-    display: flex;
-    min-height: 100vh;
-    flex-direction: column;
-    background-image: url(../Images/background.png);
-    background-size: cover;
-    
+    background-color: #28c9cb;
 }
 
 h1 {
@@ -49,6 +36,7 @@ h1 {
 }
 
 .player{
+
 text-align: center;
 font-family: 'Passion One', cursive;
 font-family: 'Boogaloo', cursive;
@@ -84,44 +72,44 @@ padding:10px;
 }
 
 #middle{
+
 margin:auto;
 width:50%;
+
+
 }
+
+
 
 #timer {
     text-align: center;
-    color: yellow;
+    background-color: #af2380;
+    color: white;
+    padding: 10px;
+    font-family: bold;
     border-radius: 25px;
-    background-color: black;
-    padding: 3px;
-    /*font-family: bold;
-    border-radius: 25px;
-    margin-top:20px; */
+    margin-top:20px;
 }
 
-#teamScore {
+
+#teamscore {
     text-align: center;
-    color: yellow;
-    border-radius: 25px;
-    background-color: black;
-    padding: 3px;
-    /* background-color: #af2380; */
-    /* color: white;
+    background-color: #af2380;
+    color: white;
     margin: auto;
     width: 100%;
-    border-radius: 25px; */
+    padding: 10px;
+    border-radius: 25px;
 }
 
 #picture {
     display:block;
     margin: auto;
-    margin-top: 10px;
     width: 100%;
-    /* max-height: 55%; */
-    border-radius: 25px;
-    /* border-color: #e7efef;
+    border-radius: 5px;
+    border-color: #1eb2b1;
     border-width: 5px;
-    border-style: solid; */
+    border-style: solid;
 }
 
 #userInput {
@@ -130,42 +118,16 @@ width:50%;
     color: black;
     margin: auto;
     width: 100%;
+    padding: 10px;
     border-radius: 25px;
 }
 
-#submit {
-    margin: 0 auto;
-    border-radius: 25px;
-    
-}
+body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+  }
 
-.birdlogo {
-   width: 85px !important;
-    border: unset;
-}
-
-p {
-    text-shadow: 2px 2px black;
-}
-
-.submitbutton{
-    border-radius: 5px !important;
-    visibility: hidden;
-}
-
-.cloud{
-    border: unset;
-  
-    margin-top: 20px !important;
-}
-.sunpixel{
-    margin-top: 20px !important;
-    border: unset;
-}
-
-.logoutButton{
-    margin: 0 auto;
-}
 /* 980px */
 
 /* 760px */

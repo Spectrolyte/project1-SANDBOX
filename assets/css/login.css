@@ -1,0 +1,103 @@
+body{
+
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+    background-image: url(../Images/clouds.png);
+    background-size: cover;
+}
+
+.list{
+color:#010d21;
+font-size:18px;
+padding:10px 0px 0px 20px;
+
+
+}
+
+.info{
+font-family: 'Passion One', cursive;
+font-family: 'Boogaloo', cursive;
+font-size:25px;
+padding:10px 0px 0px 15px;
+color:#010d21;
+margin-bottom:-20px;
+
+}
+
+#directions{
+display:block;
+/*margin-left:150px;
+margin-top:200px;*/
+margin: auto;
+width:50%;
+font-family: 'Passion One', cursive;
+font-family: 'Boogaloo', cursive;
+background-color: #010d21;
+font-size:20px;
+
+}
+
+#gameTitle{
+
+font-family: 'Sigmar One', cursive;
+color:#010d21;
+
+
+}
+
+
+#login{
+display:block;
+margin:auto;
+margin-top:250px;
+width:30%;
+border-radius:25px;
+}
+
+
+#hideMe{
+background-color: white;
+width:80%;
+margin:auto;
+border-style: solid;
+border-width: 1px;
+padding:10px;
+opacity:.8;
+box-shadow: 10px 10px 5px #888888;
+text-align: left;
+border-radius: 15px;
+
+}
+
+#fixed {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    width: 300px;
+ }
+
+
+#bird{
+
+width:150px;
+margin-top:25px;
+margin-left:-20px;
+
+}
+
+ /* 640px media query */
+@media screen and (max-width: 640px) {
+    #gameTitle {
+        font-size: 50px;
+        margin-top: 10px;
+    }
+    #bird {
+        width: 50px;
+    }
+    #logo {
+        width: 0%;
+    }
+  }
+  
+

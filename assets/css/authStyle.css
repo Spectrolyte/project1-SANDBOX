@@ -1,6 +1,6 @@
 body{
   font-family: sans-serif;
-  background:#3498db;
+
   margin: 0 auto 0 auto;
   width:100%;
   text-align:center;
@@ -95,3 +95,11 @@ background:#3594D2;
 .hide {
     display: none;
 }
+
+#gameTitle{
+margin-top:-10px;
+font-size: 100px;
+}
+
+
+

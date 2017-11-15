@@ -3,8 +3,24 @@
     <head>
         <!-- Stylesheet for login Page -->
         <link rel="stylesheet" type="text/css" href="assets/css/authStyle.css"/>
+        <link rel="stylesheet" type="text/css" href="assets/css/login.css">
         <!-- google fonts for Login Page -->
         <meta charset="utf-8"/>
+        
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+
+        <link rel="stylesheet" type="text/css" href="assets/css/login.css">
+
+        <link href="https://fonts.googleapis.com/css?family=Passion+One" rel="stylesheet">
+  
+        <link href="https://fonts.googleapis.com/css?family=Boogaloo|Passion+One" rel="stylesheet">
+
+        <link href="https://fonts.googleapis.com/css?family=Sigmar+One" rel="stylesheet">
+
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+
         <title>Login Page</title>
     </head>
     <body>
@@ -48,21 +64,101 @@
         </script>
         <!-- END terrifying google AUTH script! -->
 
-    <h1>Welcome DEVA's Image Description Game!</h1>
-    <!-- Do Not Change Below DIV or It's ID -->
-    <div id="firebaseui-auth-container"></div>
-    <!-- ^ Do Not Change this DIV or it's ID ^ -->
+<div class = "container-fluid" >
+
+<!-- first row, photo vision game title -->
+  <div class = "row">
+    
+      <div class = "col s2"></div>
+
+      <div class = "col s8">
+      
+            <h1 id = "gameTitle">PHOTO VISI<img id ="bird" src="assets/Images/bird.svg">N</h1>
+
+      </div>
+
+      <div class = "col s2"></div>
+
+  </div>
+
+  <!-- third row, login buttons -->
+ <div class = "row">
+    <div class="col s4"></div>
+      <div class = "col s4">
+        <!-- Do Not Change Below DIV or It's ID -->
+        <div id="firebaseui-auth-container"></div>
+        <!-- ^ Do Not Change this DIV or it's ID ^ -->    
+      </div>
+    <div class="col s4"></div>
+  </div>
+
+<!-- 2nd row, instructions -->
+    <div class="row">
+      <div class="col s2"></div>
+        <div class = "col s8">
+
+
+        <a  id = "directions" class="waves-effect waves-light btn">Game Directions</a>
+
+        <div id = "hideMe" style= "display:none;">
+
+          <h4 class = "info" >About the Game</h5>
+
+          <ul class = "list" >
+          <li >When you enter the game room, you will be paired with another player. Each of you, typing one word at at time, is to describe what you see in detail. If you type matching words, you both gain a point. You will only have <strong>ONE MINUTE</strong> to accomplish this task. </li>
+          </ul>
+
+
+          <h4 class = "info" >How to Play</h4>
+
+          <ul class = "list"> 
+            <li> Sign-in using google login.</li>
+            <li> Click the puppy image to start game.</li>
+            <li> A one minute timer witll start.</li>
+            <li> Enter descriptive term into word box. </li>
+            <li> Press submit or enter after each word.</li>
+            <li> After timer expires, click bird button to restart</li>
+            <li> A point is earned with both people use the same word.</li>
+
+          </ul>
+
+          <h4 class = "info">Bonus Points</h4>
+          <ul class = "list">
+            <li>For each matching word that is in our hidden bonus word list, you both gain 2 points.</li>
+          </ul>
+       
+
+        
+        </div> 
+      <div class="col s2"></div>
+    </div> 
+
+  <!-- fourth row, DEVA Logo -->
+
+  <div class="row">
+    <div class="col s10"></div>
+      <div class="col s2" id="fixed">
+        <img id="logo" src="assets/Images/branding2.svg">
+      </div>
+  </div>
+
 
     <!-- ANYTHING GOES HERE -->
 
 
-
+</div>
 
     <!-- JQUERY CDN link -->
     <script src="https://code.jquery.com/jquery-3.2.1.js"
             integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
             crossorigin="anonymous"></script>
 
-            <script type="text/javascript" src="assets/javascript/game-logic.js"></script>
+  <script type="text/javascript" src="assets/javascript/login.js"></script>
+
     </body>
 </html>
+
+
+
+
+  
