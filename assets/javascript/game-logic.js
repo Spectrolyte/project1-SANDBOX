@@ -153,7 +153,6 @@ $('#submit-btn').click(function (event) {
 	updateGuesses();
 	evalGuesses();
 	calculateTeamPoints();
-	updatePoints();
 })
 
 // whenever this function is run, update the user's firebase array with the local array
@@ -241,7 +240,7 @@ function calculateTeamPoints () {
     console.log(teamPoints);
 }
 
-// update the user points in firebase with the teamPoints
+// update the user points in firebase with the teamPoints -- run this last
 function updatePoints () {
 
 	var userHistPoints;
