@@ -183,14 +183,17 @@ var guessData = database.ref("users/guesses");
 
 function evalGuesses () {
     guessData.once("value", function (snapshot) {
-        var currentGuess = snapshot.val();
+        var currentGuesses = snapshot.val();
 
         console.log(currentGuess);
 
-        var counts = [];
+        var wordCount = {};
 
-        for (var i=0; i < currentGuess.length; i++) {
-        	counts.push(arrayCompare(currentGuess, currentGuess[i]))
+        for (var i=0; i < currentGuesses.length; i++) {
+        	// if the word already exists in the wordCount obj, do nothing
+        	if (!wordCount[currentGuesses[i]]) {
+	        	wordCount[currentGuesses[i]] = arrayCompare(currentGuesses, currentGuess[i]);
+	        }
         }
 
         function arrayCompare(arr, what) {
@@ -203,12 +206,15 @@ function evalGuesses () {
             return count;
         }
         
-        for (var index=0; index < counts.length; index++) {
-        	if (counts[index] >= 2) {
+        // iterates through whole obj
+        for (var key in wordCount) {
+        	// if the key's value is greater than or equal to 2, increment teampoints by 1
+        	if (wordCount[key] >= 2) {
         		teamPoints++;
         	}
         }
 
+        console.log(wordCount);
         console.log(teamPoints);
     }); // End comparisonTime
 }
