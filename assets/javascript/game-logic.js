@@ -313,11 +313,14 @@ function showImage () {
 
 var number = 60; 
 var intervalId;
+var running = false;
 
 function run() {
-    intervalId = setInterval(decrement, 1000);
-    $(".submitbutton").show();
-    $('#update-score').hide();
+	if (!running) {
+		running = true;
+	    intervalId = setInterval(decrement, 1000);
+	    $(".submitbutton").show();
+	}
 }
 
 // set the countdown
@@ -336,9 +339,12 @@ function decrement() {
 function stop() {
     clearInterval(intervalId);
     number = 60;
+    running = false;
     $(".submitbutton").hide();
     $('#update-score').show();
 }
+
+$('#update-score').hide();
 
 $('#update-score').on('show', function () {
 	updatePoints();
@@ -346,9 +352,6 @@ $('#update-score').on('show', function () {
 
 // start button
 $(".startButton").on("click", run);
-
-// stop button
-$(".restartButton").on("click", run);
 
 
 
