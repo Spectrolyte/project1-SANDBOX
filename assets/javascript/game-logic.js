@@ -343,13 +343,14 @@ function stop() {
     running = false;
     $(".submitbutton").hide();
     $('#update-score').show();
+    updatePoints();
 }
 
 $('#update-score').hide();
 
-$('#update-score').on('show', function () {
+/*$('#update-score').on('show', function () {
 	updatePoints();
-})
+})*/
 
 // start button
 $(".startButton").on("click", run);
