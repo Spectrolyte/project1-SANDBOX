@@ -207,8 +207,11 @@ function evalGuesses () {
 
         for (var i=0; i < currentGuesses.length; i++) {
         	// if the word does not exist in the wordCount obj, add the key-val pair to it
-        	if (!wordCount[currentGuesses[i]]) {
-	        	wordCount[currentGuesses[i]].count = arrayCompare(currentGuesses, currentGuesses[i]);
+        	var word = currentGuesses[i];
+
+        	if (!wordCount[word]) {
+        		wordCount[word] = {}
+	        	wordCount[word].count = arrayCompare(currentGuesses, word);
 	        }
         }
 
@@ -229,10 +232,12 @@ function calculateTeamPoints () {
     	// if the key's value is greater than or equal to 2, increment teampoints by 1
     	if (!wordCount[key].checked && wordCount[key].count >= 2) {
     		wordCount[key].checked = true;
+    		teamPoints++;
     	}
     }
 
     console.log('after calc points: ' + wordCount)
+    console.log(teamPoints);
 }
 
 // run this at the end of the game round
