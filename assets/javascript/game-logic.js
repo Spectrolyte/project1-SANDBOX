@@ -93,15 +93,14 @@ firebase.auth().onAuthStateChanged(function(user) {
 });
 
 
-/*firebase.auth().signOut().then(function() {
-        // sign-out successful
-    }).catch(function(error) {
-        // an error happened
-    });
+$(".logoutButton").on("click", function() {
+	firebase.auth().signout().then(function() {
+		console.log("Signed Out");
+		window.location.href = "index.html";
+	}, function(error) {
+		console.log("Sign Out Error", error);
+	})});
 
-    signOut();
-
-    $(".logoutButton").on("click", signOut);*/
 
 currentPlayersRef.on('value', function (snapshot) {
 

@@ -9,6 +9,8 @@
 
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
+    <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
 
     <link href="https://fonts.googleapis.com/css?family=Passion+One" rel="stylesheet">
@@ -17,21 +19,22 @@
 
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 
-
-    <!-- <script type="text/javascript" src="assets/javascript/timer.js"></script> -->
+    <script type="text/javascript" src="js/materialize.min.js"></script>
 
     <!-- Compiled and minified CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
 
     <!-- Compiled and minified JavaScript -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script> 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+
+    <!-- GAME-LOGIC SCRIPT REFERENCE -->
+    <script type="text/javascript" src="assets/javascript/game-logic.js"></script>
 
     <title>Photo Vision</title>
 
 </head>
 
 <body>
-
     <!-- This script goes wherever we direct our user after Login. Is necessary for Event Listeners through firebase! -->
     <script src="https://www.gstatic.com/firebasejs/4.6.2/firebase.js"></script>
     <script>
@@ -55,7 +58,7 @@
 
             <div class="col s3">
               <div class="row">
-                  <img class = "responsive-img  sun sunpixel" src="assets/Images/sun.svg">
+                  <img class = "responsive-img  sun sunpixel" src="assets/images/sun.svg">
                </div>
                <div class="row">   
                    <p class="totalScore">Player 1</p>
@@ -64,13 +67,13 @@
             </div>
     <!-- Game Image  -->
             <div class="col s6">               
-                <img  id="picture" class="responsive-img z-depth-5 startButton" src="assets/Images/pupper1.jpg"> 
+                <img  id="picture" class="responsive-img z-depth-5" src="http://cdn3-www.dogtime.com/assets/uploads/gallery/goldador-dog-breed-pictures/puppy-1.jpg"> 
             </div>
 
     <!-- Players 2 Icon -->
             <div class="col s3">
               <div class="row">
-                  <img class="responsive-img sun cloud " src="assets/Images/sun.svg">
+                  <img class="responsive-img sun cloud " src="assets/images/sun.svg">
               </div>
               <div class="row">
                   <p class ="totalScore">Player 2</p>
@@ -79,12 +82,11 @@
             </div>
         </div>
 
+<!-- text for game div goes here -->
     <!-- timer -->
         <div class="row">
             <div class="col s3">
-
-                <span><p id="timer">1:00</p></span>
-
+                <p id="timer">1:00</p>
             </div>
     <!-- user input for game -->
             <div class="col s6">
@@ -95,7 +97,7 @@
             </div>
     <!-- team score -->
             <div class="col s3">
-                <p id="teamscore">Score : 3</p>
+                <p id="teamscore">3</p>
             </div>
         </div>
 
@@ -103,7 +105,7 @@
         <div class="row">
             <div class="col s12">
                 <div class="wrapper">
-                    <button class="btn submitbutton pink darken-3 waves-effect waves-light z-depth-5" id="submit-btn" type="submit" name="action">
+                    <button class="btn submit pink darken-3 waves-effect waves-light z-depth-5" type="submit" name="action">
                     <i class="material-icons right" id="submit">Submit</i></button>
                 </div>
             </div>
@@ -111,23 +113,23 @@
         
     <!-- logo and logout button -->
         <div class="row">
-            
-            <div class="col s3 center-align">
-                <a class="btn-floating btn-large waves-effect waves-light red z-depth-5 logoutButton"><i class="material-icons">X</i></a>
+            <div class="col s1"></div>
+            <div class="col s1">
+                <a class="btn-floating btn-large waves-effect waves-light red z-depth-5"><i class="material-icons">X</i></a>
             </div>
-            <div class="col s6"></div>
-            <div class="col s3">
-
-                <img class = "birdlogo sun restartButton" alt="logo" src="assets/Images/bird.svg">
-
+            <div class="col s8"></div>
+            <div class="col s1">
+                <img class = "birdlogo" class="responsive-img circle sun z-depth-5" alt="logo" src="assets/images/bird.svg">
             </div>
+            <div class="col s1"></div>
         </div>
+
 
 
     </div>
 
-    <script type="text/javascript" src="assets/javascript/game-logic.js"></script>
-
 </body>
 
 </html>
+
+
