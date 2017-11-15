@@ -206,11 +206,20 @@ function evalGuesses () {
         console.log(currentGuesses);
 
         for (var i=0; i < currentGuesses.length; i++) {
-        	// if the word does not exist in the wordCount obj, add the key-val pair to it
+        	
         	var word = currentGuesses[i];
 
+			// if the word does not exist in the wordCount obj, add the key-val pair to it
         	if (!wordCount[word]) {
+        		// create an empty obj for the word
         		wordCount[word] = {}
+        		// create a count prop
+	        	wordCount[word].count = arrayCompare(currentGuesses, word);
+
+	        }
+
+	        // if it exists, update its count
+	        else if (wordCount[word]) {
 	        	wordCount[word].count = arrayCompare(currentGuesses, word);
 	        }
         }
@@ -233,6 +242,10 @@ function calculateTeamPoints () {
     	if (!wordCount[key].checked && wordCount[key].count >= 2) {
     		wordCount[key].checked = true;
     		teamPoints++;
+
+    		console.log(wordCount[key]);
+    		console.log(wordCount[key].count);
+    		console.log(wordCount[key].checked);
     	}
     }
 
