@@ -6,7 +6,7 @@ var number = 60;
 var intervalId;
 function run() {
     intervalId = setInterval(decrement, 1000);
-    $(".submitbutton").css("visibility", "visible");
+    $(".submitbutton").show();
 };
 
 // set the countdown
@@ -25,7 +25,7 @@ function decrement() {
 function stop() {
     clearInterval(intervalId);
     number = 60;
-    $(".submitbutton").css("visibility", "hidden");
+    $(".submitbutton").hide();
 }
 
 // start button
