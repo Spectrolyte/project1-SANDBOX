@@ -41,18 +41,18 @@ firebase.auth().onAuthStateChanged(function(user) {
 
 	usersRef.transaction(function(currentData) {
 	  if (currentData === null) {
-	    return {name: displayName, points: 0, guesses: ['PLACEHOLDER']};
+	    return {name: displayName, points: 0};
 	  } else {
-	    console.log('User' + displayName + 'already exists.');
+	    console.log('User ' + displayName + ' already exists.');
 	    return; // Abort the transaction.
 	  }
 	}, function(error, committed, snapshot) {
 	  if (error) {
 	    console.log('Transaction failed abnormally!', error);
 	  } else if (!committed) {
-	    console.log('We aborted the transaction (because' + UID + 'already exists).');
+	    console.log('We aborted the transaction (because ' + UID + ' already exists).');
 	  } else {
-	    console.log('User' + displayName + 'added!');
+	    console.log('User ' + displayName + ' added!');
 	  }
 	  console.log(displayName + '\'s data: ,' + snapshot.val());
 	});
@@ -165,6 +165,7 @@ $('#submit-btn').click(function (event) {
 	// update firebase array
 	updateGuesses();
 	evalGuesses();
+	calculateTeamPoints();
 })
 
 // whenever this function is run, update the user's firebase array with the local array
@@ -181,42 +182,62 @@ function updateGuesses () {
 
 var guessData = database.ref("users/guesses");
 
+// this obj will hold the users' guesses as keys and the amount of times they appear in the guesses array as their values
+// (i.e. ['hello', 'hello', 'world'] => {hello: 2, world: 1})
+// updated each time evalGuesses is called
+var wordCount = {};
+
+// helper function that counts the number of element instances within an array given an array and element to search for
+function arrayCompare(arr, what) {
+        var count = 0;
+        for (var i = 0; i < arr.length; i++) {
+            if (arr[i] === what) {
+                count++;
+            }
+        }
+        return count;
+    }
+
+
 function evalGuesses () {
     guessData.once("value", function (snapshot) {
         var currentGuesses = snapshot.val();
 
         console.log(currentGuesses);
 
-        var wordCount = {};
-
         for (var i=0; i < currentGuesses.length; i++) {
-        	// if the word already exists in the wordCount obj, do nothing
+        	// if the word does not exist in the wordCount obj, add the key-val pair to it
         	if (!wordCount[currentGuesses[i]]) {
-	        	wordCount[currentGuesses[i]] = arrayCompare(currentGuesses, currentGuesses[i]);
+	        	wordCount[currentGuesses[i]].count = arrayCompare(currentGuesses, currentGuesses[i]);
 	        }
         }
 
-        function arrayCompare(arr, what) {
-            var count = 0;
-            for (var i = 0; i < arr.length; i++) {
-                if (arr[i] === what) {
-                    count++;
-                }
-            }
-            return count;
-        }
-        
-        // iterates through whole obj
-        for (var key in wordCount) {
-        	// if the key's value is greater than or equal to 2, increment teampoints by 1
-        	if (wordCount[key] >= 2) {
-        		teamPoints++;
-        	}
-        }
+        console.log('before calc points: ' + wordCount);
 
-        console.log(wordCount);
-        console.log(teamPoints);
-    }); // End comparisonTime
+        // if the word the user typed in is in the wordCount obj and has value greater than or equal to 2,
+        // perform flashing animation for text box that there's a match
+
+        // else, perform animation for text box that there's no match
+
+    });
+}
+
+// add some indicator to the word prop to check if users got point for it already
+function calculateTeamPoints () {
+	// iterates through whole obj
+    for (var key in wordCount) {
+    	// if the key's value is greater than or equal to 2, increment teampoints by 1
+    	if (!wordCount[key].checked && wordCount[key].count >= 2) {
+    		wordCount[key].checked = true;
+    	}
+    }
+
+    console.log('after calc points: ' + wordCount)
+}
+
+// run this at the end of the game round
+function showImageInfo () {
+
 }
 
 // change click event to function on setTimeout -- each round lasts 30 seconds
